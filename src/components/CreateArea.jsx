@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import { CSSTransition } from "react-transition-group";
 
 function CreateArea(props) {
   const [UnExpanded, setUnExpanded] = useState(true);
   const [titlePlaceholder, setTitlePlaceHolder] = useState("Take a Note");
   const [note, setNote] = useState({ title: "", content: "" });
-
-  const textStyle = {
-    transition: "all 2s",
-    display: "flex"
-  };
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -17,7 +11,7 @@ function CreateArea(props) {
     setNote((prevValue) => {
       return {
         ...prevValue,
-        [name]: value
+        [name]: value,
       };
     });
 
@@ -37,7 +31,7 @@ function CreateArea(props) {
   }
 
   return (
-    <div style={textStyle}>
+    <div>
       <form>
         <input
           name="title"
@@ -46,6 +40,7 @@ function CreateArea(props) {
           onClick={takeNote}
           value={note.title}
         />
+
         <textarea
           name="content"
           placeholder="Take a note..."
@@ -65,7 +60,7 @@ function CreateArea(props) {
             UnExpanded
               ? { display: "none" }
               : {
-                  fontSize: "30px"
+                  fontSize: "30px",
                 }
           }
           onClick={handleSubmit}

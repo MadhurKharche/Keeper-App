@@ -5,6 +5,7 @@ import Note from "./Note";
 import CreateArea from "./CreateArea";
 
 function App() {
+  console.log("In app");
   const [notesArray, setNotesArray] = useState([]);
 
   function addItem(note) {
